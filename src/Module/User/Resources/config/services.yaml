@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Desksheet\Module\User\:
+        resource: '../../'
+        exclude:
+            - '../../DependencyInjection/'
+            - '../../Enum/'
+            - '../../Resources/'
+            - '../../Model/'

@@ -1,0 +1,11 @@
+desksheet_user:
+    resource: ../../src/Module/User/Controller/
+    type: annotation
+
+desksheet_expense:
+    resource: ../../src/Module/Expense/Controller/
+    type: annotation
+
+kernel:
+    resource: ../../src/Kernel.php
+    type: annotation

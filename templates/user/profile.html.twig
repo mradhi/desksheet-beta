@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>Welcome back, <b>{{ app.user.username }}</b></p>
+    <ul>
+        <li><a href="{{ path('expense_account_index') }}">Accounts</a></li>
+    </ul>
+{% endblock %}

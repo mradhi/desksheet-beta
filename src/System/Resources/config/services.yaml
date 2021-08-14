@@ -1,0 +1,23 @@
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    # makes classes in src/Web/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    Desksheet\System\:
+        resource: '../../'
+        exclude:
+            - '../../DependencyInjection/'
+            - '../../Attribute/'
+            - '../../Entity/'
+            - '../../Resources/'
+
+    Gedmo\Timestampable\TimestampableListener:
+        tags:
+            - { name: 'doctrine.event_subscriber' }
+    
+    Desksheet\System\DataTransfer\DataTransferHandler:
+        arguments:
+            - !tagged_iterator system.object_transformer

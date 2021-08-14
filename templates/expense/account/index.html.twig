@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('expense_account_create') }}">Create Account</a>
+    <ul>
+        {% for account in accounts %}
+            <li>
+                <span>{{ account.name }}</span> -
+                <a href="{{ path('expense_account_edit', {'account': account.id}) }}">Edit</a> -
+                <form action="{{ path('expense_account_delete', {'account': account.id}) }}"
+                      method="post"
+                      data-confirmation="true"
+                      style="display: inline">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('delete_account') }}"/>
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
